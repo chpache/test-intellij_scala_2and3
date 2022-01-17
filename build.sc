@@ -19,22 +19,17 @@ object main extends ScalaModule {
   // Add semanticDB for mill-bsp
   def scalacPluginIvyDeps = Agg(ivy"org.scalameta:::semanticdb-scalac:4.4.30")
 
-  def moduleDeps = Seq(scalathree)
+//  def moduleDeps = Seq(scalathree)
 
 
-  def compileIvyDeps = T {
-    Agg(
-      ivy"org.scala-lang:scala3-library_3:${scalathree.scalaVersion()}"  // this is needed by TASTy to read scala 3 code
-    )
-  }
-
-
-  object scalathree extends ScalaModule {
-  def scalaVersion = Versions.scala3
-
-    def moduleDeps = Seq(specifications)
-  }
+//  def compileIvyDeps = T {
+//    Agg(
+//      ivy"org.scala-lang:scala3-library_3:${scalathree.scalaVersion()}"  // this is needed by TASTy to read scala 3 code
+//    )
+//  }
 }
+
+
 
 object specifications extends ScalaModule {
   def scalaVersion = Versions.scala2
